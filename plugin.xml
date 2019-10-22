@@ -32,14 +32,12 @@
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     </config-file>
 
-    <source-file src="src/android/Template.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/AndroidDownloader.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/AndroidHelper.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/GHAsyncTask.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/GraphhopperPlugin.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/GraphhopperSimpleRouting.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/RoutingInterface.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
-    <source-file src="src/android/Template.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
 
   </platform>
 
