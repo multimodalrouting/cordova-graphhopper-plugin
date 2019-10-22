@@ -20,7 +20,7 @@
 
   <!-- android -->
   <platform name="android">
-    <framework src="src/android/build/graphhopper.gradle" custom="true" type="gradleReference"/>
+    <framework src="src/android/graphhopper.gradle" custom="true" type="gradleReference"/>
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Graphhopper" >
         <param name="android-package" value="de.applant.cordova.plugin.graphhopper.GraphhopperPlugin"/>
