@@ -13,13 +13,13 @@ var Graphhopper = (function () {
   Template.prototype.echo = function (echoValue, successCallback) {
     cordova.exec(successCallback, function () {
       console.log('Error')
-    }, 'Template', 'echo', [echoValue]);
+    }, 'Graphhopper', 'echo', [echoValue]);
   };
   
   Template.prototype.loadMap = function (mapArea, successCallback) {
     cordova.exec(successCallback, function () {
       console.log('Error')
-    }, 'Template', 'loadMap', [mapArea]);
+    }, 'Graphhopper', 'loadMap', [mapArea]);
   };
 
   return Template;
