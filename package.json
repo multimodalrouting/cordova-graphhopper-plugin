@@ -1,23 +1,20 @@
 {
-    "version": "0.0.0",
-    "name": "cordova-plugin-template",
-    "cordova_name": "CordovaPluginTemplate",
-    "description": "Cordova Plugin Template",
+    "version": "0.1.0",
+    "name": "cordova-graphhopper-plugin",
+    "cordova_name": "Graphhopper Cordova Plugin",
+    "description": "makes graphhopper offline routing available to cordova android applications",
     "license": "Apache 2.0",
     "author": {
-        "name": "Raphael Hirtenfelder",
-        "email": "hirtenfelder@bluewin.ch"
+        "name": "Winzlieb",
+        "email": "winzlieb@c3d2.de"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/hirtenfelder/cordova-plugin-template.git"
-    },
-    "bugs": {
-        "url": "https://github.com/hirtenfelder/cordova-plugin-template/issues"
+        "url": "https://github.com/multimodalrouting/cordova-graphhopper-plugin.git"
     },
     "keywords": [
         "cordova",
         "plugin",
-        "template"
+        "graphhopper"
     ]
 }

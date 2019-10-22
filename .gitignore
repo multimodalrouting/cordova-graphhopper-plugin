@@ -190,3 +190,4 @@ ModelManifest.xml
 
 .idea
 *.iml
+!/src/android/build
