@@ -36,7 +36,6 @@
     <source-file src="src/android/AndroidDownloader.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/AndroidHelper.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/GHAsyncTask.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
-    <source-file src="src/android/graphhopper.gradle" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/GraphhopperPlugin.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/GraphhopperSimpleRouting.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/RoutingInterface.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
