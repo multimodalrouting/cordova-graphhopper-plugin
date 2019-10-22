@@ -1,6 +1,7 @@
 package de.applant.cordova.plugin.graphhopper;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaArgs;
@@ -14,9 +15,20 @@ public class GraphhopperPlugin extends CordovaPlugin {
 
     RoutingInterface routing = null;
 
+
+    private void log(String str) {
+        Log.i("GH", str);
+    }
+
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
+        log("graphhopper plugin initialized");
+
+    }
+    @Override
+    protected void pluginInitialize() {
+        log("Graphhopper initialized");
     }
 
     /**
@@ -50,6 +62,7 @@ public class GraphhopperPlugin extends CordovaPlugin {
     @Override
     public void onStart() {
         super.onStart();
+        log("Graphhopper onStart");
         routing = new GraphhopperSimpleRouting(getContext());
     }
 
