@@ -3,10 +3,7 @@ package de.applant.cordova.plugin.graphhopper;
 import android.content.Context;
 import android.util.Log;
 
-import com.graphhopper.GHResponse;
-
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaArgs;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
@@ -14,12 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.LineString;
 
-import java.sql.Array;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GraphhopperPlugin extends CordovaPlugin {
 
@@ -83,18 +79,26 @@ public class GraphhopperPlugin extends CordovaPlugin {
                 }
                 routing.calcPath(fromLat, fromLon, toLat, toLon, resp -> {
                     LineString lineString = resp.getBest().getPoints().toLineString(false);
-                    Optional<String> coordinates = Arrays.stream(lineString.getCoordinates())
+                    Coordinate[] coords = lineString.getCoordinates();
+                    String coordString = "";
+                    for(int i = 0; i < coords.length; i++) {
+                       coordString = coordString + "[" + coords[i].x + "," + coords[i].y + "] ,";
+                    }
+                    if(coordString.length() > 0) {
+                        coordString = coordString.substring(0, coordString.length() - 1);
+                    }
+                    /*Optional<String> coordinates = Arrays.stream(lineString.getCoordinates())
                             .map(coordinate -> "[" + coordinate.x + "," + coordinate.y + "]")
-                            .reduce((coord, pre) -> pre + "," + coord);
-                    if(!coordinates.isPresent()) {
+                            .reduce((coord, pre) -> pre + "," + coord);*/
+                    /*if(!coordinates.isPresent()) {
                         callbackContext.error("cannot create coordinate array string");
-                    } else {
+                    } else {*/
                         try {
-                            JSONArray result = new JSONArray(
+                            JSONObject result = new JSONObject(
                                     new JSONTokener( "{" +
                                             "   \"points\": {" +
                                             "       \"coordinates\": [" +
-                                            coordinates.get() +
+                                            coordString +
                                             "        ]," +
                                             "       \"type\": \"LineString\"" +
                                             "   }" +
@@ -105,7 +109,7 @@ public class GraphhopperPlugin extends CordovaPlugin {
                             e.printStackTrace();
                             callbackContext.error(e.getMessage());
                         }
-                    }
+                    //}
                 });
                 break;
             default:
