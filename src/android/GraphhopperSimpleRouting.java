@@ -84,13 +84,13 @@ public class GraphhopperSimpleRouting implements RoutingInterface {
 
 
     public void calcPath(final double fromLat, final double fromLon,
-                         final double toLat, final double toLon) {
+                         final double toLat, final double toLon, RoutingResultDelegate delegate) {
 
         log("calculating path ...");
-        new AsyncTask<Void, Void, PathWrapper>() {
+        new AsyncTask<Void, Void, GHResponse>() {
             float time;
 
-            protected PathWrapper doInBackground(Void... v) {
+            protected GHResponse doInBackground(Void... v) {
                 StopWatch sw = new StopWatch().start();
                 GHRequest req = new GHRequest(fromLat, fromLon, toLat, toLon).
                         setAlgorithm(Parameters.Algorithms.DIJKSTRA_BI);
@@ -98,11 +98,12 @@ public class GraphhopperSimpleRouting implements RoutingInterface {
                         put(Parameters.Routing.INSTRUCTIONS, "false");
                 GHResponse resp = hopper.route(req);
                 time = sw.stop().getSeconds();
-                return resp.getBest();
+                return resp;
             }
 
-            protected void onPostExecute(PathWrapper resp) {
-                if (!resp.hasErrors()) {
+            protected void onPostExecute(GHResponse resp) {
+                delegate.gotGHResponse(resp);
+                /*if (!resp.hasErrors()) {
                     log("from:" + fromLat + "," + fromLon + " to:" + toLat + ","
                             + toLon + " found path with distance:" + resp.getDistance()
                             / 1000f + ", nodes:" + resp.getPoints().getSize() + ", time:"
@@ -112,10 +113,10 @@ public class GraphhopperSimpleRouting implements RoutingInterface {
 
                     /*pathLayer = createPathLayer(resp);
                     mapView.map().layers().add(pathLayer);
-                    mapView.map().updateMap(true);*/
+                    mapView.map().updateMap(true);
                 } else {
                     logUser("Error:" + resp.getErrors());
-                }
+                }*/
                 //shortestPathRunning = false;
             }
         }.execute();

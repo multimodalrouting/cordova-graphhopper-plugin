@@ -39,6 +39,7 @@
     <source-file src="src/android/GraphhopperPlugin.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/GraphhopperSimpleRouting.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
     <source-file src="src/android/RoutingInterface.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
+    <source-file src="src/android/RoutingResultDelegate.java" target-dir="src/de/applant/cordova/plugin/graphhopper" />
 
   </platform>
 
