@@ -17,14 +17,16 @@ var Graphhopper = (function () {
   };
   
   Template.prototype.loadMap = function (mapArea, successCallback) {
-    cordova.exec(successCallback, function () {
-      console.log('Error')
+    cordova.exec(successCallback, function (err) {
+      console.log('Error');
+      console.error(err);
     }, 'Graphhopper', 'loadMap', [mapArea]);
   };
   
   Template.prototype.route = function (routeOptions, successCallback) {
-    cordova.exec(successCallback, function () {
+    cordova.exec(successCallback, function (err) {
       console.log('Error')
+      console.error(err);
     }, 'Graphhopper', 'route', [routeOptions]);
   };
 
