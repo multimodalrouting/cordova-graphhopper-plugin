@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Cordova Graphhopper Plugin
  */
 
@@ -20,6 +20,12 @@ var Graphhopper = (function () {
     cordova.exec(successCallback, function () {
       console.log('Error')
     }, 'Graphhopper', 'loadMap', [mapArea]);
+  };
+  
+  Template.prototype.route = function (routeOptions, successCallback) {
+    cordova.exec(successCallback, function () {
+      console.log('Error')
+    }, 'Graphhopper', 'route', [routeOptions]);
   };
 
   return Template;
